@@ -5,10 +5,12 @@ DigitalOut led1(PA_1);
 //DigitalOut led2(LED2);
 Serial pc(PA_9, PA_10);
 
+
+		
 void led2_thread(void const *args)
 {
     while (true) {
-        led1 = !led1;
+        //led1 = !led1;
         osDelay(1000);
     }
 }
@@ -30,3 +32,4 @@ int main()
     osThreadCreate(osThread(serial_thread), NULL);
     while(true);
 }
+
