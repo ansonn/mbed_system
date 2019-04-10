@@ -55,7 +55,7 @@
 
 //=======================================
 
-#define DEVICE_SEMIHOST         0
+#define DEVICE_SEMIHOST         1
 #define DEVICE_LOCALFILESYSTEM  0
 #define DEVICE_ID_LENGTH       24
 

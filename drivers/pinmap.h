@@ -1,9 +1,6 @@
-#ifndef __LED_H
-#define __LED_H
 
-#include "stm32f10x.h"
-#define  uchar  unsigned char
-#define  uint  unsigned int
+#pragma once
+
 /*---------------------- 3.3v电源使能 ------------------------*/
 
 #define PWR_3V3_EN_PIN             GPIO_Pin_11        		 // LED1 引脚      
@@ -11,51 +8,56 @@
 #define PWR_3V3_EN_CLK             RCC_APB2Periph_GPIOB	 // LED1 GPIO端口时钟
 
 
+// right push-out motor
+#define R_PUSHOUT_ENABLE                  PE_8
+#define R_PUSHOUT_PROTATION               PE_1
+#define R_PUSHOUT_NROTATION               PE_9
+
+#define R_PUSHOUT_PLIMIT                  PB_10
+#define R_PUSHOUT_NLIMIT                  PB_1
+
+// letf push-out motor
+#define L_PUSHOUT_ENABLE                  PE_6
+#define L_PUSHOUT_PROTATION               PA_0
+#define L_PUSHOUT_NROTATION               PA_1
+
+#define L_PUSHOUT_PLIMIT                  PB_10
+#define L_PUSHOUT_NLIMIT                  PB_1
+
+// right door lift motor
+#define R_DOORLIFT_ENABLE                 PB_0
+#define R_DOORLIFT_PROTATION              PC_4
+#define R_DOORLIFT_NROTATION              PC_5
+
+#define R_DOORLIFT_OPENED                 PB_4
+#define R_DOORLIFT_CLOSED                 PB_3  
+
+// left door lift motor
+#define L_DOORLIFT_ENABLE                 PA_4
+#define L_DOORLIFT_PROTATION              PA_7
+#define L_DOORLIFT_NROTATION              PC_3
+
+#define L_DOORLIFT_OPENED                 PE_0
+#define L_DOORLIFT_CLOSED                 PB_9  
+
+// LCD
+#define LCD_ROM_SI                        PC_5
+#define LCD_ROM_SO                        PB_0
+#define LCD_ROM_SCLK                      PB_1
+#define LCD_ROM_CS                        PB_2
+
+#define LCD_SCLK                          PE_7
+#define LCD_SDA                           PE_8
+#define LCD_RS                            PE_9
+#define LCD_RESET                         PE_10
+#define LCD_CS                            PE_11
+
+#define LCD_LED                           PE_12
 
 
-//---------------------右马达推出电机
-
-#define RIGHT_M_OUT_EN_PIN             GPIO_Pin_8       		 // LED1 引脚      
-#define RIGHT_M_OUT_EN_PORT            GPIOE                  // LED1 GPIO端口     
-#define RIGHT_M_OUT_EN_CLK             RCC_APB2Periph_GPIOE	 // LED1 GPIO端口时钟
 
 
-#define RIGHT_M_OUT_P_PIN             GPIO_Pin_1       		 // LED1 引脚      
-#define RIGHT_M_OUT_P_PORT            GPIOE                  // LED1 GPIO端口     
-#define RIGHT_M_OUT_P_CLK             RCC_APB2Periph_GPIOE	 // LED1 GPIO端口时钟
 
-
-#define RIGHT_M_OUT_N_PIN             GPIO_Pin_9      		 // LED1 引脚      
-#define RIGHT_M_OUT_N_PORT            GPIOE                 // LED1 GPIO端口     
-#define RIGHT_M_OUT_N_CLK             RCC_APB2Periph_GPIOE	 // LED1 GPIO端口时钟
-
-//---------------------右马达推出电机前后限位检测
-
-#define  RIGHT_M_OUT_KEY_PIN                GPIO_Pin_10        		     
-#define  RIGHT_M_OUT_KEY_PORT               GPIOB                    
-
-#define  RIGHT_M_RESET_KEY_PIN                GPIO_Pin_1        		    
-#define  RIGHT_M_RESET_KEY_PORT               GPIOB                    
-//---------------------左推出电机----------------------
-#define LEFT_M_OUT_EN_PIN             GPIO_Pin_6       		    
-#define LEFT_M_OUT_EN_PORT            GPIOE                     
-#define LEFT_M_OUT_EN_CLK             RCC_APB2Periph_GPIOE	 
-
-
-#define LEFT_M_OUT_P_PIN             GPIO_Pin_0       		   
-#define LEFT_M_OUT_P_PORT            GPIOA                   
-#define LEFT_M_OUT_P_CLK             RCC_APB2Periph_GPIOA	
-
-
-#define LEFT_M_OUT_N_PIN             GPIO_Pin_1      		
-#define LEFT_M_OUT_N_PORT            GPIOA                  
-#define LEFT_M_OUT_N_CLK             RCC_APB2Periph_GPIOA
-//---------------------左推出电机前后限位检测----------------------、
-#define  LEFT_M_OUT_KEY_PIN                GPIO_Pin_15       		     
-#define  LEFT_M_OUT_KEY_PORT               GPIOE                    
-
-#define  LEFT_M_RESET_KEY_PIN                GPIO_Pin_7        		    
-#define  LEFT_M_RESET_KEY_PORT               GPIOE      
 //-------------------LED灯触摸开关检测--------------------------------
 #define  LED_SW_PIN             GPIO_Pin_5       		 // led触摸开关    
 #define  LED_SW_PORT            GPIOE                  // 
@@ -63,49 +65,7 @@
 //-------------------二维码触摸开关检测--------------------------------
 #define  ER_WEIMA_SW_PIN             GPIO_Pin_5       		 // 二维码触摸开关    
 #define  ER_WEIMA_SW_PORT            GPIOD                  // 
-//---------------------左门升降电机驱动----------------------
-#define LEFT_DOOR_OUT_EN_PIN             GPIO_Pin_4       		    
-#define LEFT_DOOR_OUT_EN_PORT            GPIOA                     
-#define LEFT_DOOR_OUT_EN_CLK             RCC_APB2Periph_GPIOA	 
-
-
-#define LEFT_DOOR_OUT_P_PIN             GPIO_Pin_7       		   
-#define LEFT_DOOR_OUT_P_PORT            GPIOA                   
-#define LEFT_DOOR_OUT_P_CLK             RCC_APB2Periph_GPIOA	
-
-
-#define LEFT_DOOR_OUT_N_PIN             GPIO_Pin_3      		
-#define LEFT_DOOR_OUT_N_PORT            GPIOC                  
-#define LEFT_DOOR_OUT_N_CLK             RCC_APB2Periph_GPIOC
-
-//---------------------右门升降电机驱动----------------------
-#define RIGHT_DOOR_OUT_EN_PIN             GPIO_Pin_0       		    
-#define RIGHT_DOOR_OUT_EN_PORT            GPIOB                     
-#define RIGHT_DOOR_OUT_EN_CLK             RCC_APB2Periph_GPIOB	 
-
-
-#define RIGHT_DOOR_OUT_P_PIN             GPIO_Pin_4       		   
-#define RIGHT_DOOR_OUT_P_PORT            GPIOC                   
-#define RIGHT_DOOR_OUT_P_CLK             RCC_APB2Periph_GPIOC	
-
-
-#define RIGHT_DOOR_OUT_N_PIN             GPIO_Pin_5      		
-#define RIGHT_DOOR_OUT_N_PORT            GPIOC                  
-#define RIGHT_DOOR_OUT_N_CLK             RCC_APB2Periph_GPIOC
-
-//---------------------右门升降限位检测----------------------
-#define  RIGHT_DOOR_OPEN_KEY_PIN                GPIO_Pin_4       		     
-#define  RIGHT_DOOR_OPEN_KEY_PORT               GPIOB     
-
-#define  RIGHT_DOOR_CLOSE_KEY_PIN                GPIO_Pin_3       		     
-#define  RIGHT_DOOR_CLOSE_KEY_PORT               GPIOB    
-
-//---------------------左门升降限位检测----------------------
-#define  LEFT_DOOR_OPEN_KEY_PIN                GPIO_Pin_0       		     
-#define  LEFT_DOOR_OPEN_KEY_PORT               GPIOE     
-
-#define  LEFT_DOOR_CLOSE_KEY_PIN                GPIO_Pin_9      		     
-#define  LEFT_DOOR_CLOSE_KEY_PORT               GPIOB    
+ 
 
 
 //--------------------左货物取走检测端口----------------------
@@ -233,8 +193,6 @@
 
 /*---------------------- 函数声明 ----------------------------*/
 
-void LED_Init(void);	//LED初始化函数
 
 
-#endif //__LED_H
 

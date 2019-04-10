@@ -1,21 +1,12 @@
 #include "mbed.h"
 #include "cmsis_os.h"
+#include <driver.h>
 
-DigitalOut led1(PA_1);
-//DigitalOut led2(LED2);
+void operations_thread(void const *args);
+void interactive_thread(const void *args);
+
 Serial pc(PA_9, PA_10);
-
-
-		
-void led2_thread(void const *args)
-{
-    while (true) {
-        //led1 = !led1;
-        osDelay(1000);
-    }
-}
-
-void serial_thread(const void *args)
+void command_thread(const void *args)
 {
     pc.baud(115200);
     while(true) {
@@ -23,13 +14,15 @@ void serial_thread(const void *args)
     }
 }
 
-osThreadDef(serial_thread, osPriorityNormal, DEFAULT_STACK_SIZE);
-osThreadDef(led2_thread, osPriorityNormal, DEFAULT_STACK_SIZE);
+osThreadDef(command_thread, osPriorityNormal, DEFAULT_STACK_SIZE);
+osThreadDef(operations_thread, osPriorityNormal, DEFAULT_STACK_SIZE);
+osThreadDef(interactive_thread, osPriorityNormal, DEFAULT_STACK_SIZE);
 
 int main()
 {
-    osThreadCreate(osThread(led2_thread), NULL);
-    osThreadCreate(osThread(serial_thread), NULL);
+    osThreadCreate(osThread(operations_thread), NULL);
+    osThreadCreate(osThread(command_thread), NULL);
+		osThreadCreate(osThread(interactive_thread), NULL);
     while(true);
 }
 
