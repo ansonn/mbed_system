@@ -1,28 +1,32 @@
+/* mbed Microcontroller Library
+ * Copyright (c) 2018 ARM Limited
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
 #include "mbed.h"
-#include "cmsis_os.h"
-#include <driver.h>
+#include "stats_report.h"
 
-void operations_thread(void const *args);
-void interactive_thread(const void *args);
+DigitalOut led1(LED1);
 
-Serial pc(PA_9, PA_10);
-void command_thread(const void *args)
-{
-    pc.baud(115200);
-    while(true) {
-        pc.putc(pc.getc());
-    }
-}
+#define SLEEP_TIME                  500 // (msec)
+#define PRINT_AFTER_N_LOOPS         20
 
-osThreadDef(command_thread, osPriorityNormal, DEFAULT_STACK_SIZE);
-osThreadDef(operations_thread, osPriorityNormal, DEFAULT_STACK_SIZE);
-osThreadDef(interactive_thread, osPriorityNormal, DEFAULT_STACK_SIZE);
-
+// main() runs in its own thread in the OS
 int main()
 {
-    osThreadCreate(osThread(operations_thread), NULL);
-    osThreadCreate(osThread(command_thread), NULL);
-		osThreadCreate(osThread(interactive_thread), NULL);
-    while(true);
-}
+    SystemReport sys_state( SLEEP_TIME * PRINT_AFTER_N_LOOPS /* Loop delay time in ms */);
 
+    int count = 0;
+    while (true) {
+        // Blink LED and wait 0.5 seconds
+        led1 = !led1;
+        wait_ms(SLEEP_TIME);
+
+        if ((0 == count) || (PRINT_AFTER_N_LOOPS == count)) {
+            // Following the main thread wait, report on the current system status
+            sys_state.report_state();
+            count = 0;
+        }
+        ++count;
+    }
+}
