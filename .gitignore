@@ -45,10 +45,14 @@ cifs*
 #
 # Top-level generic files
 #
+*.uvguix.*
+*.uvoptx
+
 tags
 TAGS
 
 BUILD
+DebugConfig
 #
 # git files that we don't want to ignore even it they are dot-files
 #
