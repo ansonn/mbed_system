@@ -369,7 +369,7 @@
             <TextAddressRange>0</TextAddressRange>
             <DataAddressRange>0</DataAddressRange>
             <pXoBase></pXoBase>
-            <ScatterFile>.\..\mbed-os\targets\TARGET_STM\TARGET_STM32F1\TARGET_NUCLEO_F103RB\device\TOOLCHAIN_ARM_STD\stm32f103xb.sct</ScatterFile>
+            <ScatterFile>.\stm32f103xb.sct</ScatterFile>
             <IncludeLibs></IncludeLibs>
             <IncludeLibsPath></IncludeLibsPath>
             <Misc>--show_full_path --predefine="-DMBED_BOOT_STACK_SIZE=1024" --predefine="-DMBED_ROM_START=0x8000000" --predefine="-DMBED_RAM_START=0x20000000" --predefine="-DMBED_RAM_SIZE=0x5000" --predefine="-DMBED_ROM_SIZE=0x20000" --cpu=cortex-m3 --keep=os_cb_sections</Misc>
