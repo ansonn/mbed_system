@@ -1236,7 +1236,7 @@ typedef struct
 #define __HAL_RCC_GPIOE_CLK_DISABLE()       (RCC->APB2ENR &= ~(RCC_APB2ENR_IOPEEN))
 #endif /* STM32F101x6 || STM32F101xB || STM32F101xE || (...) || STM32F105xC || STM32F107xC */
 
-#if defined(STM32F101xE) || defined(STM32F103xE) || defined(STM32F101xG)\
+#if defined(STM32F101xE) || defined(STM32F103xE) || defined(STM32F103xE_CONDOM) || defined(STM32F101xG)\
  || defined(STM32F103xG)
 #define __HAL_RCC_GPIOF_CLK_ENABLE()   do { \
                                         __IO uint32_t tmpreg; \

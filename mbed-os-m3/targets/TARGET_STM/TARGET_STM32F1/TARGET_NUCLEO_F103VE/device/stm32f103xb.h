@@ -1,6 +1,6 @@
 /**
   ******************************************************************************
-  * @file    stm32f103xb.h
+  * @file    stm32f103xe.h
   * @author  MCD Application Team
   * @version V4.2.0
   * @date    31-March-2017
@@ -48,12 +48,12 @@
   * @{
   */
 
-/** @addtogroup stm32f103xb
+/** @addtogroup stm32f103xe
   * @{
   */
     
-#ifndef __STM32F103xB_H
-#define __STM32F103xB_H
+#ifndef __STM32F103xE_H
+#define __STM32F103xE_H
 
 #ifdef __cplusplus
  extern "C" {
@@ -651,6 +651,8 @@ typedef struct
 #define GPIOC_BASE            (APB2PERIPH_BASE + 0x00001000U)
 #define GPIOD_BASE            (APB2PERIPH_BASE + 0x00001400U)
 #define GPIOE_BASE            (APB2PERIPH_BASE + 0x00001800U)
+#define GPIOF_BASE            (APB2PERIPH_BASE + 0x00001C00U)
+#define GPIOG_BASE            (APB2PERIPH_BASE + 0x00002000U)
 #define ADC1_BASE             (APB2PERIPH_BASE + 0x00002400U)
 #define ADC2_BASE             (APB2PERIPH_BASE + 0x00002800U)
 #define TIM1_BASE             (APB2PERIPH_BASE + 0x00002C00U)
@@ -1354,7 +1356,12 @@ typedef struct
 #define RCC_APB2ENR_IOPEEN_Msk               (0x1U << RCC_APB2ENR_IOPEEN_Pos)  /*!< 0x00000040 */
 #define RCC_APB2ENR_IOPEEN                   RCC_APB2ENR_IOPEEN_Msk            /*!< I/O port E clock enable */
 
-
+#define RCC_APB2ENR_IOPFEN_Pos               (7U)                              
+#define RCC_APB2ENR_IOPFEN_Msk               (0x1U << RCC_APB2ENR_IOPFEN_Pos)  /*!< 0x00000040 */
+#define RCC_APB2ENR_IOPFEN                   RCC_APB2ENR_IOPFEN_Msk            /*!< I/O port E clock enable */
+#define RCC_APB2ENR_IOPGEN_Pos               (8U)                              
+#define RCC_APB2ENR_IOPGEN_Msk               (0x1U << RCC_APB2ENR_IOPGEN_Pos)  /*!< 0x00000040 */
+#define RCC_APB2ENR_IOPGEN                   RCC_APB2ENR_IOPGEN_Msk            /*!< I/O port E clock enable */
 
 
 /*****************  Bit definition for RCC_APB1ENR register  ******************/
@@ -10635,7 +10642,7 @@ typedef struct
   }
 #endif /* __cplusplus */
   
-#endif /* __STM32F103xB_H */
+#endif /* __STM32F103xE_H */
   
   
   
