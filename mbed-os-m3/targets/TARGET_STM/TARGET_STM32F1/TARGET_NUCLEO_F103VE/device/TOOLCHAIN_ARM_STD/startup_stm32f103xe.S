@@ -41,7 +41,7 @@
 ; 
 ;*******************************************************************************
 
-__initial_sp    EQU     0x20005000 ; Top of RAM
+__initial_sp    EQU     0x20010000 ; Top of RAM
 
                 PRESERVE8
                 THUMB
@@ -114,6 +114,23 @@ __Vectors       DCD     __initial_sp               ; Top of Stack
                 DCD     EXTI15_10_IRQHandler       ; EXTI Line 15..10
                 DCD     RTC_Alarm_IRQHandler        ; RTC Alarm through EXTI Line
                 DCD     USBWakeUp_IRQHandler       ; USB Wakeup from suspend
+                DCD     TIM8_BRK_IRQHandler        ; TIM8 Break
+                DCD     TIM8_UP_IRQHandler         ; TIM8 Update
+                DCD     TIM8_TRG_COM_IRQHandler    ; TIM8 Trigger and Commutation
+                DCD     TIM8_CC_IRQHandler         ; TIM8 Capture Compare
+                DCD     ADC3_IRQHandler            ; ADC3
+                DCD     FSMC_IRQHandler            ; FSMC
+                DCD     SDIO_IRQHandler            ; SDIO
+                DCD     TIM5_IRQHandler            ; TIM5
+                DCD     SPI3_IRQHandler            ; SPI3
+                DCD     UART4_IRQHandler           ; UART4
+                DCD     UART5_IRQHandler           ; UART5
+                DCD     TIM6_IRQHandler            ; TIM6
+                DCD     TIM7_IRQHandler            ; TIM7
+                DCD     DMA2_Channel1_IRQHandler   ; DMA2 Channel1
+                DCD     DMA2_Channel2_IRQHandler   ; DMA2 Channel2
+                DCD     DMA2_Channel3_IRQHandler   ; DMA2 Channel3
+                DCD     DMA2_Channel4_5_IRQHandler ; DMA2 Channel4 & Channel5
 __Vectors_End
 
 __Vectors_Size  EQU  __Vectors_End - __Vectors
@@ -220,6 +237,23 @@ Default_Handler PROC
                 EXPORT  EXTI15_10_IRQHandler       [WEAK]
                 EXPORT  RTC_Alarm_IRQHandler        [WEAK]
                 EXPORT  USBWakeUp_IRQHandler       [WEAK]
+                EXPORT  TIM8_BRK_IRQHandler        [WEAK]
+                EXPORT  TIM8_UP_IRQHandler         [WEAK]
+                EXPORT  TIM8_TRG_COM_IRQHandler    [WEAK]
+                EXPORT  TIM8_CC_IRQHandler         [WEAK]
+                EXPORT  ADC3_IRQHandler            [WEAK]
+                EXPORT  FSMC_IRQHandler            [WEAK]
+                EXPORT  SDIO_IRQHandler            [WEAK]
+                EXPORT  TIM5_IRQHandler            [WEAK]
+                EXPORT  SPI3_IRQHandler            [WEAK]
+                EXPORT  UART4_IRQHandler           [WEAK]
+                EXPORT  UART5_IRQHandler           [WEAK]
+                EXPORT  TIM6_IRQHandler            [WEAK]
+                EXPORT  TIM7_IRQHandler            [WEAK]
+                EXPORT  DMA2_Channel1_IRQHandler   [WEAK]
+                EXPORT  DMA2_Channel2_IRQHandler   [WEAK]
+                EXPORT  DMA2_Channel3_IRQHandler   [WEAK]
+                EXPORT  DMA2_Channel4_5_IRQHandler [WEAK]
 
 WWDG_IRQHandler
 PVD_IRQHandler
@@ -264,7 +298,23 @@ USART3_IRQHandler
 EXTI15_10_IRQHandler
 RTC_Alarm_IRQHandler
 USBWakeUp_IRQHandler
-
+TIM8_BRK_IRQHandler
+TIM8_UP_IRQHandler
+TIM8_TRG_COM_IRQHandler
+TIM8_CC_IRQHandler
+ADC3_IRQHandler
+FSMC_IRQHandler
+SDIO_IRQHandler
+TIM5_IRQHandler
+SPI3_IRQHandler
+UART4_IRQHandler
+UART5_IRQHandler
+TIM6_IRQHandler
+TIM7_IRQHandler
+DMA2_Channel1_IRQHandler
+DMA2_Channel2_IRQHandler
+DMA2_Channel3_IRQHandler
+DMA2_Channel4_5_IRQHandler
                 B       .
 
                 ENDP

@@ -141,6 +141,23 @@ typedef enum
   EXTI15_10_IRQn              = 40,     /*!< External Line[15:10] Interrupts                      */
   RTC_Alarm_IRQn              = 41,     /*!< RTC Alarm through EXTI Line Interrupt                */
   USBWakeUp_IRQn              = 42,     /*!< USB Device WakeUp from suspend through EXTI Line Interrupt */
+  TIM8_BRK_IRQn,
+  TIM8_UP_IRQn,
+  TIM8_TRG_COM_IRQn,
+  TIM8_CC_IRQn,
+  ADC3_IRQn,
+  FSMC_IRQn,
+  SDIO_IRQn,
+  TIM5_IRQn,
+  SPI3_IRQn,
+  UART4_IRQn,
+  UART5_IRQn,
+  TIM6_IRQn,
+  TIM7_IRQn,
+  DMA2_Channel1_IRQn,
+  DMA2_Channel2_IRQn,
+  DMA2_Channel3_IRQn,
+  DMA2_Channel4_5_IRQn
 } IRQn_Type;
 
 /**
@@ -633,12 +650,18 @@ typedef struct
 #define TIM2_BASE             (APB1PERIPH_BASE + 0x00000000U)
 #define TIM3_BASE             (APB1PERIPH_BASE + 0x00000400U)
 #define TIM4_BASE             (APB1PERIPH_BASE + 0x00000800U)
+#define TIM5_BASE             (APB1PERIPH_BASE + 0x00000C00U)
+#define TIM6_BASE             (APB1PERIPH_BASE + 0x00001000U)
+#define TIM7_BASE             (APB1PERIPH_BASE + 0x00001400U)
 #define RTC_BASE              (APB1PERIPH_BASE + 0x00002800U)
 #define WWDG_BASE             (APB1PERIPH_BASE + 0x00002C00U)
 #define IWDG_BASE             (APB1PERIPH_BASE + 0x00003000U)
 #define SPI2_BASE             (APB1PERIPH_BASE + 0x00003800U)
+#define SPI3_BASE             (APB1PERIPH_BASE + 0x00003C00U)
 #define USART2_BASE           (APB1PERIPH_BASE + 0x00004400U)
 #define USART3_BASE           (APB1PERIPH_BASE + 0x00004800U)
+#define UART4_BASE            (APB1PERIPH_BASE + 0x00004C00U)
+#define UART5_BASE            (APB1PERIPH_BASE + 0x00005000U)
 #define I2C1_BASE             (APB1PERIPH_BASE + 0x00005400U)
 #define I2C2_BASE             (APB1PERIPH_BASE + 0x5800)
 #define CAN1_BASE             (APB1PERIPH_BASE + 0x00006400U)
@@ -697,12 +720,18 @@ typedef struct
 #define TIM2                ((TIM_TypeDef *)TIM2_BASE)
 #define TIM3                ((TIM_TypeDef *)TIM3_BASE)
 #define TIM4                ((TIM_TypeDef *)TIM4_BASE)
+#define TIM5                ((TIM_TypeDef *)TIM5_BASE)
+#define TIM6                ((TIM_TypeDef *)TIM6_BASE)
+#define TIM7                ((TIM_TypeDef *)TIM7_BASE)
 #define RTC                 ((RTC_TypeDef *)RTC_BASE)
 #define WWDG                ((WWDG_TypeDef *)WWDG_BASE)
 #define IWDG                ((IWDG_TypeDef *)IWDG_BASE)
 #define SPI2                ((SPI_TypeDef *)SPI2_BASE)
+#define SPI3                ((SPI_TypeDef *)SPI3_BASE)
 #define USART2              ((USART_TypeDef *)USART2_BASE)
 #define USART3              ((USART_TypeDef *)USART3_BASE)
+#define UART4               ((USART_TypeDef *)UART4_BASE)
+#define UART5               ((USART_TypeDef *)UART5_BASE)
 #define I2C1                ((I2C_TypeDef *)I2C1_BASE)
 #define I2C2                ((I2C_TypeDef *)I2C2_BASE)
 #define USB                 ((USB_TypeDef *)USB_BASE)
@@ -716,6 +745,8 @@ typedef struct
 #define GPIOC               ((GPIO_TypeDef *)GPIOC_BASE)
 #define GPIOD               ((GPIO_TypeDef *)GPIOD_BASE)
 #define GPIOE               ((GPIO_TypeDef *)GPIOE_BASE)
+#define GPIOF               ((GPIO_TypeDef *)GPIOF_BASE)
+#define GPIOG               ((GPIO_TypeDef *)GPIOG_BASE)
 #define ADC1                ((ADC_TypeDef *)ADC1_BASE)
 #define ADC2                ((ADC_TypeDef *)ADC2_BASE)
 #define ADC12_COMMON        ((ADC_Common_TypeDef *)ADC1_BASE)
@@ -1284,9 +1315,18 @@ typedef struct
 #define RCC_APB1RSTR_SPI2RST_Pos             (14U)                             
 #define RCC_APB1RSTR_SPI2RST_Msk             (0x1U << RCC_APB1RSTR_SPI2RST_Pos) /*!< 0x00004000 */
 #define RCC_APB1RSTR_SPI2RST                 RCC_APB1RSTR_SPI2RST_Msk          /*!< SPI 2 reset */
+#define RCC_APB1RSTR_SPI3RST_Pos             (15U)                             
+#define RCC_APB1RSTR_SPI3RST_Msk             (0x1U << RCC_APB1RSTR_SPI3RST_Pos) /*!< 0x00004000 */
+#define RCC_APB1RSTR_SPI3RST                 RCC_APB1RSTR_SPI3RST_Msk          /*!< SPI 2 reset */
 #define RCC_APB1RSTR_USART3RST_Pos           (18U)                             
 #define RCC_APB1RSTR_USART3RST_Msk           (0x1U << RCC_APB1RSTR_USART3RST_Pos) /*!< 0x00040000 */
 #define RCC_APB1RSTR_USART3RST               RCC_APB1RSTR_USART3RST_Msk        /*!< USART 3 reset */
+#define RCC_APB1RSTR_UART4RST_Pos            (19U)                             
+#define RCC_APB1RSTR_UART4RST_Msk            (0x1U << RCC_APB1RSTR_UART4RST_Pos) /*!< 0x00040000 */
+#define RCC_APB1RSTR_UART4RST                RCC_APB1RSTR_UART4RST_Msk        /*!< USART 3 reset */
+#define RCC_APB1RSTR_UART5RST_Pos            (20U)                             
+#define RCC_APB1RSTR_UART5RST_Msk            (0x1U << RCC_APB1RSTR_UART5RST_Pos) /*!< 0x00040000 */
+#define RCC_APB1RSTR_UART5RST                RCC_APB1RSTR_UART5RST_Msk        /*!< USART 3 reset */
 #define RCC_APB1RSTR_I2C2RST_Pos             (22U)                             
 #define RCC_APB1RSTR_I2C2RST_Msk             (0x1U << RCC_APB1RSTR_I2C2RST_Pos) /*!< 0x00400000 */
 #define RCC_APB1RSTR_I2C2RST                 RCC_APB1RSTR_I2C2RST_Msk          /*!< I2C 2 reset */
@@ -1395,12 +1435,30 @@ typedef struct
 #define RCC_APB1ENR_TIM4EN_Pos               (2U)                              
 #define RCC_APB1ENR_TIM4EN_Msk               (0x1U << RCC_APB1ENR_TIM4EN_Pos)  /*!< 0x00000004 */
 #define RCC_APB1ENR_TIM4EN                   RCC_APB1ENR_TIM4EN_Msk            /*!< Timer 4 clock enable */
+#define RCC_APB1ENR_TIM5EN_Pos               (3U)                              
+#define RCC_APB1ENR_TIM5EN_Msk               (0x1U << RCC_APB1ENR_TIM5EN_Pos)  /*!< 0x00000004 */
+#define RCC_APB1ENR_TIM5EN                   RCC_APB1ENR_TIM5EN_Msk            /*!< Timer 4 clock enable */
+#define RCC_APB1ENR_TIM6EN_Pos               (4U)                              
+#define RCC_APB1ENR_TIM6EN_Msk               (0x1U << RCC_APB1ENR_TIM6EN_Pos)  /*!< 0x00000004 */
+#define RCC_APB1ENR_TIM6EN                   RCC_APB1ENR_TIM6EN_Msk            /*!< Timer 4 clock enable */
+#define RCC_APB1ENR_TIM7EN_Pos               (5U)                              
+#define RCC_APB1ENR_TIM7EN_Msk               (0x1U << RCC_APB1ENR_TIM7EN_Pos)  /*!< 0x00000004 */
+#define RCC_APB1ENR_TIM7EN                   RCC_APB1ENR_TIM7EN_Msk            /*!< Timer 4 clock enable */
 #define RCC_APB1ENR_SPI2EN_Pos               (14U)                             
 #define RCC_APB1ENR_SPI2EN_Msk               (0x1U << RCC_APB1ENR_SPI2EN_Pos)  /*!< 0x00004000 */
 #define RCC_APB1ENR_SPI2EN                   RCC_APB1ENR_SPI2EN_Msk            /*!< SPI 2 clock enable */
+#define RCC_APB1ENR_SPI3EN_Pos               (15U)                             
+#define RCC_APB1ENR_SPI3EN_Msk               (0x1U << RCC_APB1ENR_SPI3EN_Pos)  /*!< 0x00004000 */
+#define RCC_APB1ENR_SPI3EN                   RCC_APB1ENR_SPI3EN_Msk            /*!< SPI 2 clock enable */
 #define RCC_APB1ENR_USART3EN_Pos             (18U)                             
 #define RCC_APB1ENR_USART3EN_Msk             (0x1U << RCC_APB1ENR_USART3EN_Pos) /*!< 0x00040000 */
 #define RCC_APB1ENR_USART3EN                 RCC_APB1ENR_USART3EN_Msk          /*!< USART 3 clock enable */
+#define RCC_APB1ENR_UART4EN_Pos              (19U)                             
+#define RCC_APB1ENR_UART4EN_Msk              (0x1U << RCC_APB1ENR_UART4EN_Pos) /*!< 0x00040000 */
+#define RCC_APB1ENR_UART4EN                  RCC_APB1ENR_UART4EN_Msk          /*!< USART 3 clock enable */
+#define RCC_APB1ENR_UART5EN_Pos              (20U)                             
+#define RCC_APB1ENR_UART5EN_Msk              (0x1U << RCC_APB1ENR_UART5EN_Pos) /*!< 0x00040000 */
+#define RCC_APB1ENR_UART5EN                  RCC_APB1ENR_UART5EN_Msk          /*!< USART 3 clock enable */
 #define RCC_APB1ENR_I2C2EN_Pos               (22U)                             
 #define RCC_APB1ENR_I2C2EN_Msk               (0x1U << RCC_APB1ENR_I2C2EN_Pos)  /*!< 0x00400000 */
 #define RCC_APB1ENR_I2C2EN                   RCC_APB1ENR_I2C2EN_Msk            /*!< I2C 2 clock enable */
