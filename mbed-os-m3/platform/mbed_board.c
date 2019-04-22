@@ -28,21 +28,21 @@ WEAK MBED_NORETURN void mbed_die(void)
 #if !defined (NRF51_H) && !defined(TARGET_EFM32)
     core_util_critical_section_enter();
 #endif
-    gpio_t led_err;
-    gpio_init_out(&led_err, LED1);
+    //gpio_t led_err;
+    //gpio_init_out(&led_err, LED1);
 
     while (1) {
         for (int i = 0; i < 4; ++i) {
-            gpio_write(&led_err, 1);
+            //gpio_write(&led_err, 1);
             wait_us(150000);
-            gpio_write(&led_err, 0);
+            //gpio_write(&led_err, 0);
             wait_us(150000);
         }
 
         for (int i = 0; i < 4; ++i) {
-            gpio_write(&led_err, 1);
+            //gpio_write(&led_err, 1);
             wait_us(400000);
-            gpio_write(&led_err, 0);
+            //gpio_write(&led_err, 0);
             wait_us(400000);
         }
     }

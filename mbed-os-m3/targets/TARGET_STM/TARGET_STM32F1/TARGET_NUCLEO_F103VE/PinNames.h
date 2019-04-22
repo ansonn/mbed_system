@@ -93,14 +93,53 @@ typedef enum {
     PD_0  = 0x30,
     PD_1  = 0x31,
     PD_2  = 0x32,
+    PD_3  = 0x33,
+    PD_4  = 0x34,
+    PD_5  = 0x35,
+    PD_6  = 0x36,
+    PD_7  = 0x37,
+    PD_8  = 0x38,
+    PD_9  = 0x39,
+    PD_10 = 0x3A,
+    PD_11 = 0x3B,
+    PD_12 = 0x3C,
+    PD_13 = 0x3D,
+    PD_14 = 0x3E,
+    PD_15 = 0x3F,
 
-    PE_0 = 0x40,
-    PE_1 = 0x41,
-    PE_2 = 0x42,
+    PE_0  = 0x40,
+    PE_1  = 0x41,
+    PE_2  = 0x42,
+    PE_3  = 0x43,
+    PE_4  = 0x44,
+    PE_5  = 0x45,
+    PE_6  = 0x46,
+    PE_7  = 0x47,
+    PE_8  = 0x48,
+    PE_9  = 0x49,
+    PE_10 = 0x4A,
+    PE_11 = 0x4B,
+    PE_12 = 0x4C,
+    PE_13 = 0x4D,
+    PE_14 = 0x4E,
+    PE_15 = 0x4F,
 
-    PF_0 = 0x50,
-    PF_1 = 0x51,
-    PF_2 = 0x52,
+    PF_0  = 0x50,
+    PF_1  = 0x51,
+    PF_2  = 0x52,
+    PF_3  = 0x53,
+    PF_4  = 0x54,
+    PF_5  = 0x55,
+    PF_6  = 0x56,
+    PF_7  = 0x57,
+    PF_8  = 0x58,
+    PF_9  = 0x59,
+    PF_10 = 0x5A,
+    PF_11 = 0x5B,
+    PF_12 = 0x5C,
+    PF_13 = 0x5D,
+    PF_14 = 0x5E,
+    PF_15 = 0x5F,
 
     // ADC internal channels
     ADC_TEMP = 0xF0,
@@ -118,14 +157,89 @@ typedef enum {
     STDIO_UART_RX = PA_3,
 #endif
 
-    // Generic signals namings
-    LED1        = PA_5,
-    LED2        = PA_5,
-    LED3        = PA_5,
-    LED4        = PA_5,
-    USER_BUTTON = PC_13,
+    // GPRS Module
+    GPRS_STA = PD_7,
+    GPRS_TX = PA_2,
+    GPRS_RX = PA_3,
+    GPRS_BAT_EN = PA_11,
+    GPRS_PWR_ONOFF = PB_5,
+
+    // Charge check
+    BAT_CHARGE_STA = PC_12,
+
+    // LCD
+    LCD_ROM_SO = PC_6,
+    LCD_ROM_SCLK = PD_15,
+    LCD_ROM_CS = PD_14,
+    LCD_ROM_SI = PA_8,
+
+    LCD_SCLK = PD_13,
+    LCD_SDA = PD_12,
+    LCD_CS = PB_13,
+    LCD_RS = PB_15,
+    LCD_RST = PB_14,
+    LCD_LED = PB_8,
+
+    // EEPROM
+    EEPROM_SCL = PB_6,
+    EEPROM_SDA = PB_7,
+
+    // BLE
+    BLE_SCL = PE_12,
+    BLE_SDA = PE_13,
+    BLE_WAKEUP = PE_10,
+    BLE_RESET = PE_11,
+    BLE_INT = PB_12,
+
+    // Battery
+    BAT_CHK_IN = PC_0,
+
+    // MOTOR
+    L_PUSH_DRV_P = PA_0,
+    L_PUSH_DRV_N = PA_1,
+    L_PUSH_DRV_EN = PE_6,
+    L_LOAD_OUT_IR = PE_15,
+    L_LOAD_RST_IR = PB_1,
+
+    R_PUSH_DRV_P = PE_1,
+    R_PUSH_DRV_N = PE_9,
+    R_PUSH_DRV_EN = PE_8,
+    R_LOAD_OUT_IR = PB_10,
+    R_LOAD_RST_IR = PE_7,
+
+
+    L_DOOR_DRV_P = PA_7,
+    L_DOOR_DRV_N = PC_3,
+    L_DOOR_DRV_EN = PA_4,
+    L_DOOR_CLOSE_IR = PE_0,
+    L_DOOR_OPEN_IR = PB_9,
+
+    R_DOOR_DRV_P = PC_4,
+    R_DOOR_DRV_N = PC_5,
+    R_DOOR_DRV_EN = PB_0,
+    R_DOOR_CLOSE_IR = PB_4,
+    R_DOOR_OPEN_IR = PB_3,
+
+    T_DOOR_DRV = PE_3,
+    T_DOOR_DET = PE_2,
+
+    // INPUT
+    BTN_SLEEP = PC_7,
+    BTN_DISP_QR = PD_5,
+    CHARGE_CHECK = PD_1,
+    VIBRI_DET_IN = PC_9,
+    BTN_LED = PE_5, 
+
+    // CONTROL
+    CTRL_INFRARED_PWR_EN = PE_14,
+    CTRL_PWR_INFRARED_BLE = PB_11,
+    CTRL_LED = PC_11,
+
+    // AD
+    AD_LEFT_LEVEL_IN = PC_2,
+    AD_RIGHT_LEVEL_IN = PA_5,
+
     // Standardized button names
-    BUTTON1 = USER_BUTTON,
     SERIAL_TX   = STDIO_UART_TX,
     SERIAL_RX   = STDIO_UART_RX,
     USBTX       = STDIO_UART_TX,
@@ -136,11 +250,6 @@ typedef enum {
     SPI_MISO    = PA_6,
     SPI_SCK     = PA_5,
     SPI_CS      = PB_6,
-    PWM_OUT     = PB_3,
-
-    /**** USB pins ****/
-    USB_DM = PA_11,
-    USB_DP = PA_12,
 
     /**** OSCILLATOR pins ****/
     RCC_OSC32_IN = PC_14,

@@ -10058,11 +10058,6 @@
           <GroupName>source</GroupName>
           <Files>
             <File>
-              <FileName>main.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>main.cpp</FilePath>
-            </File>
-            <File>
               <FileName>mbed_config.h</FileName>
               <FileType>5</FileType>
               <FilePath>mbed_config.h</FilePath>

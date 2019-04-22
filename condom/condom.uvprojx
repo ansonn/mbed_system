@@ -397,6 +397,56 @@
               <FileType>5</FileType>
               <FilePath>stats_report.h</FilePath>
             </File>
+            <File>
+              <FileName>ble.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\ble.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>ble.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\ble.h</FilePath>
+            </File>
+            <File>
+              <FileName>ctrl.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\ctrl.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>ctrl.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\ctrl.h</FilePath>
+            </File>
+            <File>
+              <FileName>disp.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\disp.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>disp.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\disp.h</FilePath>
+            </File>
+            <File>
+              <FileName>gprs.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\gprs.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>gprs.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\gprs.h</FilePath>
+            </File>
+            <File>
+              <FileName>motor.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\motor.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>motor.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\motor.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
