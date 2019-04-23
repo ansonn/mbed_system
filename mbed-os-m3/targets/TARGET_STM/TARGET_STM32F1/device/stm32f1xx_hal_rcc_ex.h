@@ -860,7 +860,7 @@ typedef struct
 #define __HAL_RCC_USB_CLK_DISABLE()         (RCC->APB1ENR &= ~(RCC_APB1ENR_USBEN))
 #endif /* STM32F102x6 || STM32F102xB || STM32F103x6 || STM32F103xB || STM32F103xE || STM32F103xG */
 
-#if defined(STM32F101xE) || defined(STM32F103xE) || defined(STM32F103xE_CONDOM) || defined(STM32F101xG)\
+#if defined(STM32F101xE) || defined(STM32F103xE) || defined(STM32F101xG)\
  || defined(STM32F103xG) || defined(STM32F105xC) || defined(STM32F107xC)
 #define __HAL_RCC_TIM5_CLK_ENABLE()   do { \
                                         __IO uint32_t tmpreg; \
@@ -1109,7 +1109,7 @@ typedef struct
 #define __HAL_RCC_USB_IS_CLK_ENABLED()       ((RCC->APB1ENR & (RCC_APB1ENR_USBEN)) != RESET)
 #define __HAL_RCC_USB_IS_CLK_DISABLED()      ((RCC->APB1ENR & (RCC_APB1ENR_USBEN)) == RESET)
 #endif /* STM32F102x6 || STM32F102xB || STM32F103x6 || STM32F103xB || STM32F103xE || STM32F103xG */
-#if defined(STM32F101xE) || defined(STM32F103xE) || defined(STM32F103xE_CONDOM)|| defined(STM32F101xG)\
+#if defined(STM32F101xE) || defined(STM32F103xE)|| defined(STM32F101xG)\
  || defined(STM32F103xG) || defined(STM32F105xC) || defined(STM32F107xC)
 #define __HAL_RCC_TIM5_IS_CLK_ENABLED()       ((RCC->APB1ENR & (RCC_APB1ENR_TIM5EN)) != RESET)
 #define __HAL_RCC_TIM5_IS_CLK_DISABLED()      ((RCC->APB1ENR & (RCC_APB1ENR_TIM5EN)) == RESET)
@@ -1236,7 +1236,7 @@ typedef struct
 #define __HAL_RCC_GPIOE_CLK_DISABLE()       (RCC->APB2ENR &= ~(RCC_APB2ENR_IOPEEN))
 #endif /* STM32F101x6 || STM32F101xB || STM32F101xE || (...) || STM32F105xC || STM32F107xC */
 
-#if defined(STM32F101xE) || defined(STM32F103xE) || defined(STM32F103xE_CONDOM) || defined(STM32F101xG)\
+#if defined(STM32F101xE) || defined(STM32F103xE) || defined(STM32F101xG)\
  || defined(STM32F103xG)
 #define __HAL_RCC_GPIOF_CLK_ENABLE()   do { \
                                         __IO uint32_t tmpreg; \
@@ -1450,7 +1450,7 @@ typedef struct
 #define __HAL_RCC_USB_RELEASE_RESET()       (RCC->APB1RSTR &= ~(RCC_APB1RSTR_USBRST))
 #endif /* STM32F102x6 || STM32F102xB || STM32F103x6 || STM32F103xB || STM32F103xE || STM32F103xG */
 
-#if defined(STM32F101xE) || defined(STM32F103xE) || defined(STM32F103xE_CONDOM) || defined(STM32F101xG)\
+#if defined(STM32F101xE) || defined(STM32F103xE) || defined(STM32F101xG)\
  || defined(STM32F103xG) || defined(STM32F105xC) || defined(STM32F107xC)
 #define __HAL_RCC_TIM5_FORCE_RESET()        (RCC->APB1RSTR |= (RCC_APB1RSTR_TIM5RST))
 #define __HAL_RCC_TIM6_FORCE_RESET()        (RCC->APB1RSTR |= (RCC_APB1RSTR_TIM6RST))
@@ -1551,7 +1551,7 @@ typedef struct
 #define __HAL_RCC_GPIOE_RELEASE_RESET()     (RCC->APB2RSTR &= ~(RCC_APB2RSTR_IOPERST))
 #endif /* STM32F101x6 || STM32F101xB || STM32F101xE || (...) || STM32F105xC || STM32F107xC */
 
-#if defined(STM32F101xE) || defined(STM32F103xE) || defined(STM32F103xE_CONDOM) || defined(STM32F101xG)\
+#if defined(STM32F101xE) || defined(STM32F103xE) || defined(STM32F101xG)\
  || defined(STM32F103xG)
 #define __HAL_RCC_GPIOF_FORCE_RESET()       (RCC->APB2RSTR |= (RCC_APB2RSTR_IOPFRST))
 #define __HAL_RCC_GPIOG_FORCE_RESET()       (RCC->APB2RSTR |= (RCC_APB2RSTR_IOPGRST))
@@ -1560,7 +1560,7 @@ typedef struct
 #define __HAL_RCC_GPIOG_RELEASE_RESET()     (RCC->APB2RSTR &= ~(RCC_APB2RSTR_IOPGRST))
 #endif /* STM32F101xE || STM32F103xE || STM32F101xG || STM32F103xG*/
 
-#if defined(STM32F103xE) || defined(STM32F103xE_CONDOM) || defined(STM32F103xG)
+#if defined(STM32F103xE) || defined(STM32F103xG)
 #define __HAL_RCC_TIM8_FORCE_RESET()        (RCC->APB2RSTR |= (RCC_APB2RSTR_TIM8RST))
 #define __HAL_RCC_ADC3_FORCE_RESET()        (RCC->APB2RSTR |= (RCC_APB2RSTR_ADC3RST))
 

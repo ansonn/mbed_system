@@ -14,7 +14,7 @@
 class CondomDisp
 {
     SPI romPort;
-    //I2C lcdPort;
+    I2C lcdPort;
 
     DigitalOut lcdCS;
     DigitalOut lcdRS;
@@ -23,7 +23,7 @@ class CondomDisp
 
 public:
     CondomDisp() : romPort(LCD_ROM_SI, LCD_ROM_SO, LCD_ROM_SCLK),
-        //lcdPort(LCD_SDA, LCD_SCLK),
+        lcdPort(LCD_SDA, LCD_SCLK),
         lcdCS(LCD_CS),
         lcdRS(LCD_RS),
         lcdRst(LCD_RST),

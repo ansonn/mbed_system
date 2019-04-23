@@ -157,7 +157,6 @@ typedef struct
 #define FLASH_LATENCY_0            0x00000000U               /*!< FLASH Zero Latency cycle */
 #define FLASH_LATENCY_1            FLASH_ACR_LATENCY_0       /*!< FLASH One Latency cycle */
 #define FLASH_LATENCY_2            FLASH_ACR_LATENCY_1       /*!< FLASH Two Latency cycles */
-
 /**
   * @}
   */
