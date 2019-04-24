@@ -21,6 +21,27 @@ void CondomMotor::deinit(void)
 
 }
 
+void CondomMotor::pushOut(PathType_e pathType)
+{
+
+
+}
+
+void CondomMotor::openDoor(PathType_e pathType)
+{
+
+}
+
+void CondomMotor::pullBack(PathType_e pathType)
+{
+
+}
+
+void CondomMotor::closeDoor(PathType_e pathType)
+{
+
+}
+
 void CondomMotor::test(void)
 {
 

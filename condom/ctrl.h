@@ -7,9 +7,7 @@
 * @brief ctrl
 * @note
 */
-#include <stdlib.h>
-#include <stdio.h>
-#include <mbed.h>
+#include <condom.h>
 
 class CondomCtrl
 {

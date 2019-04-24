@@ -13,7 +13,7 @@ CondomGprs condomGprs;
 
 void CondomGprs::init(void)
 {
-    msgPort.baud(115200);
+    uartPort.baud(115200);
 }
 
 void CondomGprs::deinit(void)

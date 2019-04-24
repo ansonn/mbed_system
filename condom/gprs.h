@@ -7,18 +7,22 @@
 * @brief gprs
 * @note
 */
-#include <stdlib.h>
-#include <stdio.h>
-#include <mbed.h>
+#include <condom.h>
 
 class CondomGprs
 {
-    DigitalIn sta;
-    DigitalOut power;
-    DigitalOut bat_en;
-    Serial msgPort;
+    DigitalIn pinSta;
+    DigitalOut pinPower;
+    DigitalOut pinBaten;
+    Serial uartPort;
 public:
-    CondomGprs() : msgPort(GPRS_TX, GPRS_RX), sta(GPRS_STA), power(GPRS_PWR_ONOFF), bat_en(GPRS_BAT_EN) { }
+    CondomGprs() :
+        uartPort(GPRS_TX, GPRS_RX),
+        pinSta(GPRS_STA),
+        pinPower(GPRS_PWR_ONOFF),
+        pinBaten(GPRS_BAT_EN)
+    {
+    }
     ~CondomGprs() { }
 
     void init();

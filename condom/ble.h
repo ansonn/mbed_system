@@ -13,8 +13,18 @@
 
 class CondomBle
 {
+    DigitalIn pinInt;
+    DigitalOut pinReset;
+    DigitalOut pinWakeup;
+    I2C i2cPort;
 public:
-    CondomBle() { }
+    CondomBle() :
+        i2cPort(BLE_SDA, BLE_SCL),
+        pinInt(BLE_INT),
+        pinReset(BLE_RESET),
+        pinWakeup(BLE_WAKEUP)
+    {
+    }
     ~CondomBle() { }
 
     void init();
